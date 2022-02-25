@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import BlackKey from "./components/BlackKey";
+import WhiteKey from "./components/WhiteKey";
+import KeyboardController from "./components/KeyboardController";
+import { keyArray } from "./libraries/keyArray";
+import KeySet from "./components/KeySet";
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      App
+      <div className="keyboard">
+        <KeyboardController />
+        {/* {keyArray} */}
+        <KeySet/>
+
+        
+      </div>
     </div>
   );
 }
 
 export default App;
+
+//I guess the black keys should be made into absolute positioning and then transformed somehow... humm hum
+//I saved some codepens
