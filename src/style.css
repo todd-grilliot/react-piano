@@ -29,15 +29,22 @@ code {
   padding: 2em;
 }
 
+.keypair{
+  float: left;
+  position: relative;
+}
+
 .key{
-  /* float: left; */
   background-color: white;
-  /* padding: 2em;  */
   border: 0.05em solid;
   border-color: black;
   text-align: center;
   border-radius: 0 0 0.5em 0.5em;
+  cursor: pointer;
+  user-select: none;
+
 }
+
 
 .white-key{
   float: left;
@@ -59,4 +66,11 @@ code {
   bottom: 33%;
   transform-origin: center top;
   transform: translateX(140%);
+}
+
+.black-key.key-pressed {
+  background-color: darkslategray;
+}
+.key-pressed.white-key{
+  background-color: lightgray;
 }

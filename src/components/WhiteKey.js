@@ -1,22 +1,43 @@
-import React from "react";
-import BlackKey from "./BlackKey"
-import {useState} from 'react';
+// import React from "react";
+// import BlackKey from "./BlackKey"
+// import {useState} from 'react';
 
-const WhiteKey = ({ hasSharp, id, keyStroke }) => {
-  const [pressed, setPressed] = useState(false);
-  const [pressedSharp, setPressedSharp] = useState(false);
+// const WhiteKey = ({ id, startNote, endNote }) => {
+//   //const [pressed, setPressed] = useState(false);
+//   //const [pressedSharp, setPressedSharp] = useState(false);
+//   const isSharp = false;
 
-  const onClick = (e) => {
-    keyStroke(e, id);
-  }
+//   const onMouseDown = (e) => {
+//     startNote(e, id);
+//   }
+//   const onMouseEnter = (e) => {
+//     //check to see if the mouse button is being held...
+//     if(e.buttons === 1){
+//       startNote(e, id);
+//     }
+//   }
+//   const onMouseUp = (e) => {
+//     console.log('mouse up');
+//     endNote(e, id);
+//   }
+//   const onMouseLeave = (e) => {
+//     console.log('mouse leave');
+//     endNote(e, id);
+//   }
 
-  return (
-    <div className="key white-key" onClick={onClick} >
-      W
-    {hasSharp && <BlackKey />}
-    {hasSharp ? <p>has</p> : <p>no</p>}
-    </div>
-  )
-}
 
-export default WhiteKey
+
+//   return (
+//     <div className="key white-key" 
+//     onMouseDown={onMouseDown} 
+//     onMouseUp={onMouseUp} 
+//     onMouseLeave={onMouseLeave}
+//     onMouseEnter={onMouseEnter}
+//     >
+ 
+//       W
+//     </div>
+//   )
+// }
+
+// export default WhiteKey
