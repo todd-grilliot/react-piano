@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { playNote, stopNote } from '../libraries/webAudio';
 import KeyPair from "./KeyPair";
-import {keyHandler} from "../libraries/keyHandler"
+// import {keyHandler} from "../libraries/keyHandler"
 
 
 // let switching = false;
