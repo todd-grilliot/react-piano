@@ -3,8 +3,6 @@ import React from "react";
 const Key = ({
     id,
     isNat,
-    // natIsPressed,
-    // sharpIsPressed,
     notesArePressed,
     startNote,
     endNote,

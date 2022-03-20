@@ -1,7 +1,7 @@
-import BlackKey from "./components/BlackKey";
-import WhiteKey from "./components/WhiteKey";
+// import BlackKey from "./components/BlackKey";
+// import WhiteKey from "./components/WhiteKey";
 import KeyboardController from "./components/KeyboardController";
-import { keyArray } from "./libraries/keyArray";
+// import { keyArray } from "./libraries/keyArray";
 import KeySet from "./components/KeyBoard";
 
 function App() {

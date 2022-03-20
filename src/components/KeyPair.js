@@ -1,13 +1,11 @@
 import React from "react";
-import WhiteKey from "./WhiteKey";
-import BlackKey from "./BlackKey";
+// import WhiteKey from "./WhiteKey";
+// import BlackKey from "./BlackKey";
 import Key from "./Key";
 
 const KeyPair = ({
     hasSharp,
     id,
-    // natIsPressed,
-    // sharpIsPressed,
     notesArePressed,
     startNote,
     endNote,
@@ -21,7 +19,6 @@ const KeyPair = ({
                 endNote={endNote}
                 switchNotes={switchNotes}
                 isNat={true}
-                // natIsPressed={natIsPressed}
                 notesArePressed={notesArePressed}
             />
 
@@ -32,7 +29,6 @@ const KeyPair = ({
                     endNote={endNote}
                     switchNotes={switchNotes}
                     isNat={false}
-                    // sharpIsPressed={sharpIsPressed}
                     notesArePressed={notesArePressed}
                 />
             )}
