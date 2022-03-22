@@ -24,10 +24,7 @@ code {
   padding: 1em;
 }
 
-.keyboard-controller{
-  background-color: silver;
-  padding: 2em;
-}
+
 
 .keypair{
   float: left;
@@ -73,4 +70,22 @@ code {
 }
 .key-pressed.white-key{
   background-color: lightgray;
+}
+
+.keyboard-controller{
+  display: flex;
+  background-color: silver;
+  padding: 2em;
+}
+.slider-container{
+  /* background-color: antiquewhite; */
+  text-align: center;
+  
+}
+.slider{
+  writing-mode: bt-lr; /* IE */
+  -webkit-appearance: slider-vertical; /* Chromium */
+  width: 2em;
+  height: 6em;
+  padding: 0 5px;
 }

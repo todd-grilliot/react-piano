@@ -1,12 +1,10 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-import { playNote, stopNote } from '../libraries/webAudio';
+import { playNote, stopNote, stopAllNotes } from '../libraries/webAudio';
+import KeyboardController from "./KeyboardController";
 import KeyPair from "./KeyPair";
-// import {keyHandler} from "../libraries/keyHandler"
 
-
-// let switching = false;
-const KeySet = () => {
+const KeyBoard = ({volume}) => {
     const [keyboardLength, setKeyBoardLength] = useState(14);
     const [notesArePressed, setNotesArePressed] = useState(
         Array(keyboardLength).fill({ nat: false, sharp: false })
@@ -15,28 +13,19 @@ const KeySet = () => {
 
     useEffect(() => {
 
-
-        // i'm just tired and not thinking straight...
-        // i think that only stopping a note when you aren't adding one might help...
-        // but it might not.. lol
-        // i was trying to check to see if i'm adding a note or taking one away when useEffect is called..
-        // but i'm not really sure if that's the way to go...
-        // anyway, you can't compare two arrays with ===
-        // and you can't find the [] of something undefined or else the whole thing will crash.. pretty sure.
-        // i'm going to rest now...
-
-        //are we adding a note or taking away...?
-        // console.log(notesArePressed)
-        // console.log(prevNotesArePressed.current);
-
-        //     if(JSON.stringify(prevNotesArePressed.current) === JSON.stringify(notesArePressed)){
-        //         for (let i = 0; i < notesArePressed.length; i++) {
-        //         console.log('i guess so');
-        //         }
-        //     }
-
-            stopNote();
-            // if (prevNotesArePressed.current === notesArePressed)
+        if(prevNotesArePressed.current){
+            for (let i = 0; i < notesArePressed.length; i++) {
+                if (!notesArePressed[i].nat && prevNotesArePressed.current[i].nat){
+                    stopNote(i, true);
+                }
+                if (!notesArePressed[i].sharp && prevNotesArePressed.current[i].sharp){
+                    stopNote(i, false);
+                }
+            }
+        }
+        if(notesArePressed.every((value) => value.nat === false && value.sharp === false)){
+            stopAllNotes();
+        }
 
             for (let i = 0; i < notesArePressed.length; i++) {
                 if (notesArePressed[i].nat && !prevNotesArePressed.current[i].nat){
@@ -62,7 +51,6 @@ const KeySet = () => {
     }
 
     function endNote(event, id, isNat) {
-        console.log(`end note: ${id} ${isNat}`);
         setNotesArePressed(
             notesArePressed.map((value, index) => {
                 return index === id ? (isNat ? {...value, nat: false} : {...value, sharp: false}) : value;
@@ -71,7 +59,6 @@ const KeySet = () => {
     }
 
     function switchNotes(event, newNote, oldNote) {
-        console.log('switch notes function!');
         setNotesArePressed(
             notesArePressed
                 .map((value, index) => {
@@ -119,17 +106,11 @@ const KeySet = () => {
 
     document.onkeydown = (e) => {
         let ourKey = keys.find(obj => obj.key === e.key);
-        //keydown is being fired repeatedly until we let go
-        //keyboard event repeat property... ???
         if(e.repeat) return;
-        console.log(e);
-
-
         if(ourKey){
             setNotesArePressed(
                 notesArePressed.map((value, index) => {
                     return index === ourKey.id ? (ourKey.isNat ? {...value, nat: true} : {...value, sharp: true}) : value;
-                    // return index === id ? (isNat ? {...value, nat: true} : {...value, sharp: true}) : value;
                 })
             );
         }
@@ -140,7 +121,6 @@ const KeySet = () => {
             setNotesArePressed(
                 notesArePressed.map((value, index) => {
                     return index === ourKey.id ? (ourKey.isNat ? {...value, nat: false} : {...value, sharp: false}) : value;
-                    // return index === id ? (isNat ? {...value, nat: true} : {...value, sharp: true}) : value;
                 })
             );
         }
@@ -159,6 +139,7 @@ const KeySet = () => {
 
     return (
         <>
+            <KeyboardController />
             {keyComponentArray.map((value, index) => (
                 <KeyPair
                     key={value.id}
@@ -174,6 +155,4 @@ const KeySet = () => {
     );
 };
 
-export default KeySet;
-
-//used to be 'keyComponentArray.js'
+export default KeyBoard;
