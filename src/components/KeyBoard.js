@@ -4,8 +4,9 @@ import { playNote, stopNote, stopAllNotes } from '../libraries/webAudio';
 import KeyboardController from "./KeyboardController";
 import KeyPair from "./KeyPair";
 
-const KeyBoard = ({volume}) => {
+const KeyBoard = () => {
     const [keyboardLength, setKeyBoardLength] = useState(14);
+    const [keyNameToggle, setKeyNameToggle] = useState(false);
     const [notesArePressed, setNotesArePressed] = useState(
         Array(keyboardLength).fill({ nat: false, sharp: false })
     );
@@ -80,11 +81,16 @@ const KeyBoard = ({volume}) => {
         );
     }
 
+    function toggleKeyName(){
+        console.log('toggle key name');
+        setKeyNameToggle(!keyNameToggle);
+    }
+
     // #region keyHandler
     // keyHandler
 
     const keys = [
-        {key: "a", id: 0, isNat: true},
+        {key: "c", id: 0, isNat: true},
         {key: "w", id: 0, isNat: false},
         {key: "s", id: 1, isNat: true},
         {key: "e", id: 1, isNat: false},
@@ -139,16 +145,20 @@ const KeyBoard = ({volume}) => {
 
     return (
         <>
-            <KeyboardController />
+            <KeyboardController 
+            toggleKeyName={toggleKeyName}
+            />
             {keyComponentArray.map((value, index) => (
                 <KeyPair
                     key={value.id}
+                    keyNames={keys}
                     id={value.id}
                     hasSharp={value.hasSharp}
                     notesArePressed={value.notesArePressed}
                     startNote={startNote}
                     endNote={endNote}
                     switchNotes={switchNotes}
+                    keyNameToggle={keyNameToggle}
                 />
             ))}
         </>

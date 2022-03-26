@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState, useEffect, useRef } from "react";
 import { changeVolume, changeWaveType } from '../libraries/webAudio';
+import KeyBoard from './KeyBoard';
 
-const KeyboardController = () => {
+const KeyboardController = ({toggleKeyName}) => {
   const [volume, setVolume] = useState(50);
 
   function formVolume(e){
@@ -11,6 +12,9 @@ const KeyboardController = () => {
   }
   function formWaveType(e){
     changeWaveType(e.target.id)
+  }
+  function toggleKeyNames(e){
+    toggleKeyName();
   }
   return (
     <div className='keyboard-controller'>
@@ -29,8 +33,8 @@ const KeyboardController = () => {
         <label htmlFor="sawtooth">Sawtooth</label><br />
         <input type="radio" id="square" name="wave-type" value="square" onChange={formWaveType}/>
         <label htmlFor="square">Square</label>
-
       </div>
+      <button className='btn' onClick={toggleKeyNames}>Toggle Key Names</button>
 
     </div>
   )

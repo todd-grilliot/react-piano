@@ -1,13 +1,28 @@
 import React from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Key = ({
+    keyNames,
     id,
     isNat,
     notesArePressed,
     startNote,
     endNote,
     switchNotes,
+    keyNameToggle
 }) => {
+
+    function findKeyName(array){
+        let name;
+        array.forEach(element => {
+            if (element.id === id && element.isNat === isNat){
+                name = element.key;
+            }
+        });
+        return name;
+    }
+    let keyName = findKeyName(keyNames);
+
     const onMouseDown = (e) => {
         startNote(e, id, isNat);
     };
@@ -28,12 +43,9 @@ const Key = ({
             } else {
                 startNote(e, id, isNat);
             }
-            //switch note!
-            // else start note
         }
     };
     const onMouseUp = (e) => {
-        // console.log('mouse up');
         endNote(e, id, isNat);
     };
     const onMouseLeave = (e) => {
@@ -60,6 +72,7 @@ const Key = ({
             onMouseLeave={onMouseLeave}
             onMouseEnter={onMouseEnter}
         >
+            {keyNameToggle && keyName}
         </div>
     );
 };
