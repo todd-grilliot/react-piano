@@ -90,7 +90,7 @@ const KeyBoard = () => {
     // keyHandler
 
     const keys = [
-        {key: "c", id: 0, isNat: true},
+        {key: "a", id: 0, isNat: true},
         {key: "w", id: 0, isNat: false},
         {key: "s", id: 1, isNat: true},
         {key: "e", id: 1, isNat: false},

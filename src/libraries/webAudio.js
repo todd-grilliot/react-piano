@@ -11,9 +11,8 @@ limiterNode.ratio.setValueAtTime(40.0, audioContext.currentTime);  // In Decibel
 limiterNode.attack.setValueAtTime(0.001, audioContext.currentTime); // Time is seconds
 limiterNode.release.setValueAtTime(0.1, audioContext.currentTime); // Time is seconds
 
-// primaryGain.connect(audioContext.destination);
 primaryGain.connect(limiterNode);
-limiterNode.connect(audioContext.destination)
+limiterNode.connect(audioContext.destination);
 
 let oscArray = [];
 let oscGainArray = [];
