@@ -4,9 +4,9 @@ import { playNote, stopNote, stopAllNotes } from '../libraries/webAudio';
 import KeyboardController from "./KeyboardController";
 import KeyPair from "./KeyPair";
 
-const KeyBoard = () => {
+const KeyBoard = ({ keyNameToggle }) => {
     const [keyboardLength, setKeyBoardLength] = useState(14);
-    const [keyNameToggle, setKeyNameToggle] = useState(false);
+    // const [keyNameToggle, setKeyNameToggle] = useState(false);
     const [notesArePressed, setNotesArePressed] = useState(
         Array(keyboardLength).fill({ nat: false, sharp: false })
     );
@@ -81,32 +81,34 @@ const KeyBoard = () => {
         );
     }
 
-    function toggleKeyName(){
-        setKeyNameToggle(!keyNameToggle);
-    }
+    // function toggleKeyName(){
+    //     setKeyNameToggle(!keyNameToggle);
+    // }
 
     // #region keyHandler
     // keyHandler
 
     const keys = [
-        {key: "a", id: 0, isNat: true},
-        {key: "w", id: 0, isNat: false},
-        {key: "s", id: 1, isNat: true},
-        {key: "e", id: 1, isNat: false},
-        {key: "d", id: 2, isNat: true},
-        {key: "f", id: 3, isNat: true},
-        {key: "t", id: 3, isNat: false},
-        {key: "g", id: 4, isNat: true},
-        {key: "y", id: 4, isNat: false},
-        {key: "h", id: 5, isNat: true},
-        {key: "u", id: 5, isNat: false},
-        {key: "j", id: 6, isNat: true},
-        {key: "k", id: 7, isNat: true},
-        {key: "o", id: 7, isNat: false},
-        {key: "l", id: 8, isNat: true},
-        {key: "p", id: 8, isNat: false},
-        {key: ";", id: 9, isNat: true},
-        {key: "'", id: 10, isNat: true}
+        {key: "q", id: 0, isNat: true},
+        {key: "2", id: 0, isNat: false},
+        {key: "w", id: 1, isNat: true},
+        {key: "3", id: 1, isNat: false},
+        {key: "e", id: 2, isNat: true},
+        {key: "r", id: 3, isNat: true},
+        {key: "5", id: 3, isNat: false},
+        {key: "t", id: 4, isNat: true},
+        {key: "6", id: 4, isNat: false},
+        {key: "y", id: 5, isNat: true},
+        {key: "7", id: 5, isNat: false},
+        {key: "u", id: 6, isNat: true},
+        {key: "i", id: 7, isNat: true},
+        {key: "9", id: 7, isNat: false},
+        {key: "o", id: 8, isNat: true},
+        {key: "0", id: 8, isNat: false},
+        {key: "p", id: 9, isNat: true},
+        {key: "[", id: 10, isNat: true},
+        {key: "=", id: 10, isNat: false},
+        {key: "]", id: 11, isNat: true}
     ]
 
     document.onkeydown = (e) => {
@@ -144,9 +146,7 @@ const KeyBoard = () => {
 
     return (
         <>
-            <KeyboardController 
-            toggleKeyName={toggleKeyName}
-            />
+            <KeyboardController />
             {keyComponentArray.map((value, index) => (
                 <KeyPair
                     key={value.id}

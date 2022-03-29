@@ -72,7 +72,7 @@ const Key = ({
             onMouseLeave={onMouseLeave}
             onMouseEnter={onMouseEnter}
         >
-            {keyNameToggle && keyName}
+            <h4 className="keyName">{keyNameToggle && keyName}</h4> 
         </div>
     );
 };

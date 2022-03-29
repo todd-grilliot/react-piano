@@ -1,30 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Press+Start+2P&family=Roboto&family=Rock+Salt&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  /* font-family: 'Pacifico'; */
+  font-family: 'Press Start 2P';
+  /* font-family: 'Rock Salt'; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #BBC0CB;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
 .App{
-  background-color: lavender;
+  background-color: #FFEEF3;
+  height: 100vh;
+}
+@media screen and (max-width: 1310px) {
+  .App{
+    width: fit-content;
+    height: 200vh;
+    background-color: #FFEEF3;
+  }
+}
+.header{
+  display: flex;
+  color: #FFEEF3;
+  background-color: #CC7E85;
+  padding: 1em 8em;
+  user-select: none;
+}
+.header h1{
+  margin: 0;
+}
+.menu-bar{
+  display: flex;
+  margin-left: auto;
+}
+.menu-bar h1{
+  padding: 0 0.5em;
+  cursor: pointer;
+}
+.menu-bar h1:hover{
+  color: #FDCCD3;
 }
 
 .keyboard{
-  margin: 10em;
+  margin: 4em;
   display: inline-block;
-
-  background-color: grey;
+  background-color: #43484F;
   padding: 1em;
+  user-select: none;
+  width: 71.8em;
 }
-
-
 
 .keypair{
   float: left;
@@ -39,53 +66,155 @@ code {
   border-radius: 0 0 0.5em 0.5em;
   cursor: pointer;
   user-select: none;
-
 }
-
-
 .white-key{
   float: left;
   position: relative;
   margin: 0em 0em;
   width: 5em;
   height: 20em;
+  color: #979DA5;
+}
+.white-key h4{
+  margin-top: 2.5em;
 }
 
 .black-key{
   position: absolute;
   background-color: black;
-  color: white;
-  z-index: 10;
-
+  z-index: 1;
   width: 50%;
   height: 67%;
-
   bottom: 33%;
   transform-origin: center top;
   transform: translateX(140%);
+  color: #979DA5;
 }
 
 .black-key.key-pressed {
-  background-color: darkslategray;
+  background-color: #3d4044;
 }
 .key-pressed.white-key{
-  background-color: lightgray;
+  /* background-color: lightgray; */
+  background-color: #D8DDE6;
 }
 
 .keyboard-controller{
   display: flex;
-  background-color: silver;
+  background-color: #292C2F;
   padding: 2em;
 }
+.adsr-envelope{
+  display: flex;
+  margin: 0 auto;
+}
 .slider-container{
-  /* background-color: antiquewhite; */
   text-align: center;
-  margin: 0 1.5em;
+}
+.slider-container h4{
+  font-size: 10px;
 }
 .slider{
-  writing-mode: bt-lr; /* IE */
-  -webkit-appearance: slider-vertical; /* Chromium */
-  width: 2em;
-  height: 6em;
-  padding: 0 5px;
+  background-color: aliceblue;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  margin-right: 15px;
+  margin: 4em 1em;
+  transform: rotate(-90deg);
+  width: 6em;
+  height: 0.6em;
+  background-color: #545B64;
+  border-radius: 0.2em;
+}
+input[type="range"]::-webkit-slider-thumb {
+  cursor: pointer;
+  -webkit-appearance: none;
+  height: 1.5em;
+  width: 1em;
+  border-radius: 0.2em;
+  background: #76818E;
+}
+.radio-container{
+  margin: auto auto;
+  padding-left: 1em;
+  justify-content: center;
+  
+}
+.radio-container input{
+  margin: 0.8em 1em;
+  cursor: pointer;
+}
+.radio-container label{
+  font-size: 12px;
+}
+input[type="radio"]::before {
+  content: "";
+}
+input[type=radio]:checked {
+  accent-color: #E6174E;
+  color: transparent;
+}
+
+.octave-container{
+  margin-top: auto;
+  margin-left: auto;
+  text-align: center;
+}
+.octave-container h4{
+  font-size: 12px;
+}
+.octave-selector{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.octave-selector h3{
+  padding: 0 2em;
+}
+.arrow-btn{
+  font-size: 2em;
+  cursor: pointer;
+}
+.arrow-btn:hover {
+  color:#76818E
+}
+
+.modal{
+  /* display: none; Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */ 
+}
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 7% auto; /* 15% from the top and centered */
+  padding: 2em;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+.modal-content h3{
+  margin-top: 2em;
+}
+.modal-content p{
+  font-family: 'Roboto';
+  color:#3d4044
+}
+.modal-content a{
+  color:#E6174E;
+}
+.modal-content span{
+  cursor: pointer;
+  font-size: 2.5em;
+  float: right;
+}
+.modal-content span:hover{
+  color: #808994;
 }

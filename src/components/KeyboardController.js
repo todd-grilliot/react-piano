@@ -35,9 +35,9 @@ const KeyboardController = ({toggleKeyName}) => {
   function handleWaveType(e){
     changeWaveType(e.target.value)
   }
-  function toggleKeyNames(e){
-    toggleKeyName();
-  }
+  // function toggleKeyNames(e){
+  //   toggleKeyName();
+  // }
   function handleDownOctave(e){
     if(octave > -2){
       changeOctave(octave - 1);
@@ -54,48 +54,54 @@ const KeyboardController = ({toggleKeyName}) => {
     <div className='keyboard-controller'>
       <div className='slider-container'>
       {volume} <br />
-      <input type="range" min="0" max="100" className='slider' onChange={handleVolume}/>
+      <input type="range" min="0" max="100" className='slider' onChange={handleVolume}/> <br/>
+      <h4>Master</h4>
       </div>
 
       
-      <div>
-        <input type="radio" id="sine" name="wave-type" value="sine" defaultChecked onChange={handleWaveType} />
+      <div className='radio-container'>
+        <input className='radio' type="radio" id="sine" name="wave-type" value="sine" defaultChecked onChange={handleWaveType} />
         <label htmlFor="sine">Sine</label><br />
-        <input type="radio" id="triangle" name="wave-type" value="triangle" onChange={handleWaveType}/>
+        <input className='radio' type="radio" id="triangle" name="wave-type" value="triangle" onChange={handleWaveType}/>
         <label htmlFor="triangle">Triangle</label><br />
-        <input type="radio" id="sawtooth" name="wave-type" value="sawtooth" onChange={handleWaveType}/>
+        <input className='radio' type="radio" id="sawtooth" name="wave-type" value="sawtooth" onChange={handleWaveType}/>
         <label htmlFor="sawtooth">Sawtooth</label><br />
-        <input type="radio" id="square" name="wave-type" value="square" onChange={handleWaveType}/>
+        <input className='radio' type="radio" id="square" name="wave-type" value="square" onChange={handleWaveType}/>
         <label htmlFor="square">Square</label>
       </div>
-      <button className='btn' onClick={toggleKeyNames}>Toggle Key Names</button>
+      {/* <button className='btn' onClick={toggleKeyNames}>Toggle Key Names</button> */}
 
-      <div className='slider-container'>
-      {attack} <br />
-      <input type="range" min="0" max="100" className='slider' defaultValue={0} onChange={handleAttack}/> <br />
-      Attack
+      <div className='adsr-envelope'>
+        <div className='slider-container'>
+        {attack} <br />
+        <input type="range" min="0" max="100" className='slider' defaultValue={0} onChange={handleAttack}/> <br />
+        <h4>Attack</h4>
+        </div>
+        <div className='slider-container'>
+        {decay} <br />
+        <input type="range" min="0" max="100" className='slider' defaultValue={50} onChange={handleDecay}/> <br />
+        <h4>Decay</h4>
+        </div>
+        <div className='slider-container'>
+        {sustain} <br />
+        <input type="range" min="0" max="100" className='slider' defaultValue={30} onChange={handleSustain}/> <br />
+        <h4>Sustain</h4>
+        </div>
+        <div className='slider-container'>
+        {release} <br />
+        <input type="range" min="0" max="100" className='slider' defaultValue={40} onChange={handleRelease}/> <br />
+        <h4>Release</h4>
+        </div>
       </div>
-      <div className='slider-container'>
-      {decay} <br />
-      <input type="range" min="0" max="100" className='slider' defaultValue={50} onChange={handleDecay}/> <br />
-      Decay
-      </div>
-      <div className='slider-container'>
-      {sustain} <br />
-      <input type="range" min="0" max="100" className='slider' defaultValue={30} onChange={handleSustain}/> <br />
-      Sustain
-      </div>
-      <div className='slider-container'>
-      {release} <br />
-      <input type="range" min="0" max="100" className='slider' defaultValue={40} onChange={handleRelease}/> <br />
-      Release
-      </div>
+
       <div className='octave-container'>
-        Octave
-        <div>
-          <button className='btn' onClick={handleDownOctave}>Down</button>
-          {octave}
-          <button className='btn' onClick={handleUpOctave}>Up</button>
+        <h4>Octave</h4>
+        <div className='octave-selector'>
+          {/* <button className='btn' onClick={handleDownOctave}>Down</button> */}
+          <h2 className='arrow-btn' onClick={handleDownOctave}> {'<'} </h2>
+          <h3>{octave}</h3>
+          <h2 className='arrow-btn' onClick={handleUpOctave}> {'>'} </h2>
+          {/* <button className='btn' onClick={handleUpOctave}>Up</button> */}
         </div>
       </div>
     </div>
