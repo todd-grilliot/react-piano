@@ -80,7 +80,7 @@ code {
 .slider-container{
   /* background-color: antiquewhite; */
   text-align: center;
-  
+  margin: 0 1.5em;
 }
 .slider{
   writing-mode: bt-lr; /* IE */

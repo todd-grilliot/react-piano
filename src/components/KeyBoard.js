@@ -82,7 +82,6 @@ const KeyBoard = () => {
     }
 
     function toggleKeyName(){
-        console.log('toggle key name');
         setKeyNameToggle(!keyNameToggle);
     }
 
