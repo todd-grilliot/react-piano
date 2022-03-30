@@ -9,13 +9,12 @@ const Key = ({
     startNote,
     endNote,
     switchNotes,
-    keyNameToggle
+    keyNameToggle,
 }) => {
-
-    function findKeyName(array){
+    function findKeyName(array) {
         let name;
-        array.forEach(element => {
-            if (element.id === id && element.isNat === isNat){
+        array.forEach((element) => {
+            if (element.id === id && element.isNat === isNat) {
                 name = element.key;
             }
         });
@@ -72,7 +71,7 @@ const Key = ({
             onMouseLeave={onMouseLeave}
             onMouseEnter={onMouseEnter}
         >
-            <h4 className="keyName">{keyNameToggle && keyName}</h4> 
+            <h4 className="keyName">{keyNameToggle && keyName}</h4>
         </div>
     );
 };

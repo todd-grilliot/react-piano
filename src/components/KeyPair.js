@@ -1,6 +1,4 @@
 import React from "react";
-// import WhiteKey from "./WhiteKey";
-// import BlackKey from "./BlackKey";
 import Key from "./Key";
 
 const KeyPair = ({
@@ -11,7 +9,7 @@ const KeyPair = ({
     startNote,
     endNote,
     switchNotes,
-    keyNameToggle
+    keyNameToggle,
 }) => {
     return (
         <div className="keypair">
@@ -24,7 +22,6 @@ const KeyPair = ({
                 isNat={true}
                 notesArePressed={notesArePressed}
                 keyNameToggle={keyNameToggle}
-
             />
 
             {hasSharp && (

@@ -1,21 +1,21 @@
-import React from 'react'
+import React from "react";
 
 const Header = ({ toggleKeyNames, toggleModal }) => {
-    function toggleShowKeys(){
+    function toggleShowKeys() {
         toggleKeyNames();
     }
-    function handleModal(){
+    function handleModal() {
         toggleModal();
     }
-  return (
-    <div className="header">
-        <h1>Retro Synth</h1>
-        <div className='menu-bar'>
-            <h1 onClick={toggleShowKeys}>*</h1>
-            <h1 onClick={handleModal}>?</h1>
+    return (
+        <div className="header">
+            <h1>Retro Synth</h1>
+            <div className="menu-bar">
+                <h1 onClick={toggleShowKeys}>*</h1>
+                <h1 onClick={handleModal}>?</h1>
+            </div>
         </div>
-    </div>
-  )
-}
+    );
+};
 
-export default Header
+export default Header;
