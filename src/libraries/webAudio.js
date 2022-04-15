@@ -34,7 +34,6 @@ export function changeWaveType(type) {
 }
 export function changeAttack(value) {
     attack = value;
-    console.log(attack);
 }
 export function changeDecay(value) {
     decay = value;
@@ -84,8 +83,9 @@ export function stopNote(id, isNat, isAll) {
     let hertz = convertToHertz(id, isNat);
 
     for (let i = 0; i < oscArray.length; i++) {
-        if (Math.floor(hertz) == Math.floor(oscArray[i].frequency.value)) {
-            oscGainArray[i].gain.cancelAndHoldAtTime(audioContext.currentTime);
+        if (Math.floor(hertz) === Math.floor(oscArray[i].frequency.value)) {
+                oscGainArray[i].gain.cancelScheduledValues(audioContext.currentTime);
+            
             oscGainArray[i].gain.setTargetAtTime(
                 0,
                 audioContext.currentTime,
@@ -99,7 +99,7 @@ export function stopNote(id, isNat, isAll) {
 }
 export function stopAllNotes() {
     for (let i = 0; i < oscArray.length; i++) {
-        oscGainArray[i].gain.cancelAndHoldAtTime(audioContext.currentTime);
+        oscGainArray[i].gain.cancelScheduledValues(audioContext.currentTime);
         oscGainArray[i].gain.setTargetAtTime(
             0,
             audioContext.currentTime,

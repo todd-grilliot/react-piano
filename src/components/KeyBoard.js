@@ -66,15 +66,18 @@ const KeyBoard = ({ keyNameToggle }) => {
         );
     }
     function endNote(event, id, isNat) {
-        setNotesArePressed(
-            notesArePressed.map((value, index) => {
-                return index === id
-                    ? isNat
-                        ? { ...value, nat: false }
-                        : { ...value, sharp: false }
-                    : value;
-            })
-        );
+            setNotesArePressed(notesArePressed.map((value, index) => {
+                return {nat: false, sharp: false}
+            }))
+            // setNotesArePressed(
+            //     notesArePressed.map((value, index) => {
+            //         return index === id
+            //             ? isNat
+            //                 ? { ...value, nat: false }
+            //                 : { ...value, sharp: false }
+            //             : value;
+            //     })
+            // );
     }
     function switchNotes(event, newNote, oldNote) {
         setNotesArePressed(

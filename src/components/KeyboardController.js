@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState} from "react";
 import {
     changeVolume,
     changeWaveType,
@@ -9,7 +9,6 @@ import {
     changeRelease,
     changeOctave,
 } from "../libraries/webAudio";
-import KeyBoard from "./KeyBoard";
 
 const KeyboardController = ({ toggleKeyName }) => {
     const [volume, setVolume] = useState(50);
