@@ -1,5 +1,5 @@
-# ---
-# deployment:
-#   tasks:
-#     - export DEPLOYPATH=/home4/dynamlm3/public_html/toddgrilliot/retro-synth
-#     - /bin/cp -R build $DEPLOYPATH
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home4/dynamlm3/public_html/toddgrilliot/retro-synth
+    - /bin/cp -R build $DEPLOYPATH
