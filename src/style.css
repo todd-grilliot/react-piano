@@ -44,8 +44,7 @@ body {
 .keyboard {
     margin: 4em;
     display: inline-block;
-    /* background-color: #43484f; */
-    background-color: green;
+    background-color: #43484f;
     padding: 1em;
     user-select: none;
     width: 71.8em;
