@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home4/dynamlm3/public_html/
+    - export DEPLOYPATH=/home/dynamlm3/public_html/
     - /bin/cp -r build $DEPLOYPATH
